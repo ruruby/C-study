@@ -2,44 +2,44 @@
 using namespace std;
 int main()
 {
-	int opt;//����� ���� ���
-	int n;//case 1������ ���� ����
-	int i, j, k;/*i:���� ����, j:���� ����, k:���鹮�� ���� */
+	int opt;//만들고 싶은 모양
+	int n;//case 1에서의 행의 개수
+	int i, j, k;/*i:행의 개수, j:별의 개수, k:공백문자 개수 */
 
-	int n2;/*case 2������ ���� ����*/
+	int n2;/*case 2에서의 행의 개수*/
 
-	int n3;/*case 3������ ���� ����*/
+	int n3;/*case 3에서의 행의 개수*/
 	do
 	{
-		cout << "--------�� ��� �ý���--------" << endl;
-		cout << "����� ���� ����� �������ּ���." << endl;
-		cout << "1. �����ﰢ��\n2. ���ﰢ��\n3. ����\n4. ������" << endl;
-		cin >> opt;//���� opt�� ��������� �ش��ϴ� ���� ���� �� switch case���� �̿��Ѵ�.
+		cout << "--------별 찍기 시스템--------" << endl;
+		cout << "만들고 싶은 모양을 선택해주세요." << endl;
+		cout << "1. 직각삼각형\n2. 정삼각형\n3. 나비\n4. 나가기" << endl;
+		cin >> opt;//변수 opt에 모양종류에 해당하는 정수 저장 후 switch case문에 이용한다.
 		cout << "\n";
 
 		switch (opt) {
 		case 1:
-			cout << "�����ﰢ���� �����ϼ̽��ϴ�." << endl;
-			cout << "���� ������ �������ּ���." << endl;
+			cout << "직각삼각형을 선택하셨습니다." << endl;
+			cout << "행의 개수를 선택해주세요." << endl;
 			cin >> n;
 
 			cout << "\n";
 
-			for (i = 0; i < n; i++) {/*i�� 0���� n-1���� �ݺ��ǹǷ� �� n���� �ݺ��ȴ�.*/
-				for (k = 0; k < n - i; k++) {/*(��ü �࿡�� �������� ���� ��°���� �� ��)-1��ŭ ���鹮�� ����ش�.*/
+			for (i = 0; i < n; i++) {/*i는 0부터 n-1까지 반복되므로 총 n번이 반복된다.*/
+				for (k = 0; k < n - i; k++) {/*(전체 행에서 진행중인 행의 번째수를 뺀 수)-1만큼 공백문자 찍어준다.*/
 					cout << " ";
 				}
-				for (j = 0; j <= i; j++) {/*�������� ���� ��°�� ��ŭ *�� ����ش�.*/
+				for (j = 0; j <= i; j++) {/*진행중인 행의 번째수 만큼 *을 찍어준다.*/
 					cout << "*";
 				}
-				cout << "\n";/*�� �� �Է��� ������ �ٹٲ��ش�.*/
+				cout << "\n";/*한 줄 입력이 끝나면 줄바꿔준다.*/
 			}
 
 			cout << "\n";
 
-			for (i = n; i > 0; i--) {/*i�� ���� ������ �����ִµ� �� ��翡���� ���� �ϳ��� �پ��� ������
-									 i�� 1�� �پ���*/
-				for (j = 0; j < i; j++) {
+			for (i = n; i > 0; i--) {/*i는 별의 개수와 관련있는데 이 모양에서는 별이 하나씩 줄어들기 때문에
+									 i도 1씩 줄어든다*/
+				for (j = 0; j < i; j++) {//i가 1씩 줄어들기 때문에 별도 1씩 줄어드는 개수만큼 찍힌다.
 					cout << "*";
 				}
 				cout << "\n";
@@ -48,36 +48,36 @@ int main()
 			cout << "\n";
 
 			for (i = n; i > 0; i--) {
-				for (k = 0; k < n - i; k++)
+				for (k = 0; k < n - i; k++)//공백문자는 0부터 행의 개수-1까지 1씩 늘어난다
 					cout << " ";
-				for (j = i; j > 0; j--)
+				for (j = i; j > 0; j--)//별은 행의 개수부터 1까지 1씩 줄어든다.
 					cout << "*";
 				cout << "\n";
 			}
 			break;
 		case 2:
-			cout << "���ﰢ���� �����ϼ̽��ϴ�." << endl;
-			cout << "���� ������ �������ּ���." << endl;
+			cout << "정삼각형을 선택하셨습니다." << endl;
+			cout << "행의 개수를 선택해주세요." << endl;
 			cin >> n2;
 
-			for (i = 0; i < n2; i++) {//n���� �ٷ� ����Ѵ�.
-				for (k = n2 - 1; k > i; k--)//���鹮��
+			for (i = 0; i < n2; i++) {//n개의 줄로 출력한다.
+				for (k = n2 - 1; k > i; k--)//공백문자의 개수는 1씩 줄어든다.
 					cout << " ";
-				for (j = 0; j < 2 * i + 1; j++)
+				for (j = 0; j < 2 * i + 1; j++)//별은 2씩 늘어난다.
 					cout << "*";
 				cout << "\n";
 			}
 			break;
 		case 3:
-			cout << "���� �����ϼ̽��ϴ�." << endl;
+			cout << "나비를 선택하셨습니다." << endl;
 			one:
-			cout << "Ȧ���� �Է����ּ���:";
+			cout << "홀수를 입력해주세요:";
 			cin >> n3;
-			if (n3 % 2 == 0)
+			if (n3 % 2 == 0)//짝수를 입력한 경우 다시 홀수를 입력하라는 메세지를 내보내는 곳으로 가서 다시 입력받음.
 				goto one;
-			else
-				for (i = 1; i < n3 / 2 + 1; i++) {//���߾� �ٱ��� ������ش�.
-					for (j = 1; j <= i; j++)//j�� �ݺ�Ƚ���� ���� ������ ��ġ�Ѵ�.
+			else{
+				for (i = 1; i < n3 / 2 + 1; i++) {//정중앙 줄 위까지 출력해준다.
+					for (j = 1; j <= i; j++)//j의 반복횟수는 줄의 순서와 일치한다.
 						cout << "*";
 					for (k = 1; k <= n3 - 2 * i; k++)
 						cout << " ";
@@ -85,23 +85,23 @@ int main()
 						cout << "*";
 					cout << "\n";
 				}
-			for (j = 1; j <= n3; j++)
-				cout << "*";
-			cout << "\n";
-			for (i = n3 / 2; i >= 1; i--) {
-				for (j = 1; j <= i; j++)
-					cout << "*";
-				for (k = 1; k <= n3 - 2 * i; k++)
-					cout << " ";
-				for (j = 1; j <= i; j++)
+				for (j = 1; j <= n3; j++)
 					cout << "*";
 				cout << "\n";
-			}
+				for (i = n3 / 2; i >= 1; i--) {
+					for (j = 1; j <= i; j++)
+						cout << "*";
+					for (k = 1; k <= n3 - 2 * i; k++)
+						cout << " ";
+					for (j = 1; j <= i; j++)
+						cout << "*";
+					cout << "\n";
+				}
 			break;
-		case 4:
-			cout << "�����⸦ �����ϼ̽��ϴ�.\n�����մϴ�.";
-		default:
+		case 4://무한루프 나가는 조건.
+			cout << "나가기를 선택하셨습니다.\n감사합니다.";
+		default://주어진 조건 외에 다른 조건을 선택할 경우 다시 조건 제시.
 			break;
 		}
-	} while (opt != 4);
+	} while (opt != 4);//4를 선택할 시에만 무한루프 종료.
 }
