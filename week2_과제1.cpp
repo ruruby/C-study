@@ -43,7 +43,7 @@ int odd(int a)//홀수만 출력하는 함수
 		
 		cout << "짝수:";
 		for (i = 0; i < 5; i++)
-			even(a[i]);//짝수만 출력한느 함수 even 실행.
+			even(a[i]);//짝수만 출력하는 함수 even 실행.
 		cout << "\n";
 		cout << "짝수는 총 " << n1 << "개 입니다.";
 	}
