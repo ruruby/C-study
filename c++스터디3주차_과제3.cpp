@@ -1,36 +1,36 @@
 #include <iostream>
 using namespace std;
 
-void sort(int* arr) {//¹è¿­À» ¹Ù²Ù´Â ÇÔ¼öÀÌ¹Ç·Î ¹è¿­ÀÇ ÁÖ¼ÒÀÎ arrÀ» ¾Ë·ÁÁØ´Ù
-	int i, j, temp;//¹è¿­ÀÇ ±âÁØÁ¡, ±âÁØÁ¡ÀÇ ¿ìÃø¿¡ ÀÖ´Â °Íµé, ÀÚ¸® ¹Ù²Ù±â À§ÇØ ÀÓ½Ã »ç¿ëÀ» À§ÇÑº¯¼ö¸¦ ¼±¾ðÇÑ´Ù.
-	for (i = 0; i < 5; i++) {//¹è¿­ÀÇ ¿ÞÂÊºÎÅÍ Â÷·Ê·Î ±âÁØÁ¡À¸·Î µÎ°í ºñ±³ÇÏ±â ½ÃÀÛÇÑ´Ù.
-		for (j = i + 1; j < 5; j++) {//±âÁØÁ¡ÀÇ ¿ìÃø¿¡ ¹è¿­µÇ¾î ÀÖ´Â °ÍµéÀ» ÇÏ³ª¾¿ ºñ±³ÇÑ´Ù
-			if (arr[i] > arr[j]) {//±âÁØÁ¡ÀÌ ¿ìÃø¿¡ ÀÖ´Â °ªº¸´Ù Å¬ °æ¿ì
-				temp = arr[i];//±âÁØÁ¡À» ÀÓ½Ãº¯¼ö¿¡ ´ã¾ÆÁØ´Ù
-				arr[i] = arr[j];//¿ìÃø¿¡ ÀÖ´Â °ªÀ» ±âÁØÁ¡¿¡ ´ã¾ÆÁØ´Ù
-				arr[j] = temp;//ÀÓ½Ãº¯¼ö¿¡ ´ã¾Ò´ø ±âÁØÁ¡ÀÇ °ªÀ» ¿ìÃø ¹è¿­ À§Ä¡¿¡ ³Ö¾îÁØ´Ù.
+void sort(int* arr) {//ë°°ì—´ì„ ë°”ê¾¸ëŠ” í•¨ìˆ˜ì´ë¯€ë¡œ ë°°ì—´ì˜ ì£¼ì†Œì¸ arrì„ ì•Œë ¤ì¤€ë‹¤
+	int i, j, temp;//ë°°ì—´ì˜ ê¸°ì¤€ì , ê¸°ì¤€ì ì˜ ìš°ì¸¡ì— ìžˆëŠ” ê²ƒë“¤, ìžë¦¬ ë°”ê¾¸ê¸° ìœ„í•´ ìž„ì‹œ ì‚¬ìš©ì„ ìœ„í•œ ë³€ìˆ˜ë¥¼ ì„ ì–¸í•œë‹¤.
+	for (i = 0; i < 5; i++) {//ë°°ì—´ì˜ ì™¼ìª½ë¶€í„° ì°¨ë¡€ë¡œ ê¸°ì¤€ì ìœ¼ë¡œ ë‘ê³  ë¹„êµí•˜ê¸° ì‹œìž‘í•œë‹¤.
+		for (j = i + 1; j < 5; j++) {//ê¸°ì¤€ì ì˜ ìš°ì¸¡ì— ë°°ì—´ë˜ì–´ ìžˆëŠ” ê²ƒë“¤ì„ í•˜ë‚˜ì”© ë¹„êµí•œë‹¤
+			if (arr[i] > arr[j]) {//ê¸°ì¤€ì ì´ ìš°ì¸¡ì— ìžˆëŠ” ê°’ë³´ë‹¤ í´ ê²½ìš°
+				temp = arr[i];//ê¸°ì¤€ì ì„ ìž„ì‹œë³€ìˆ˜ì— ë‹´ì•„ì¤€ë‹¤
+				arr[i] = arr[j];//ìš°ì¸¡ì— ìžˆëŠ” ê°’ì„ ê¸°ì¤€ì ì— ë‹´ì•„ì¤€ë‹¤
+				arr[j] = temp;//ìž„ì‹œë³€ìˆ˜ì— ë‹´ì•˜ë˜ ê¸°ì¤€ì ì˜ ê°’ì„ ìš°ì¸¡ ë°°ì—´ ìœ„ì¹˜ì— ë„£ì–´ì¤€ë‹¤.
 			}
 		}
 	}
 }
 
-void print(int* q) {//ÁÖ¼Ò°ªÀ» ¾Ë·ÁÁà¼­ ÇÔ¼ö¸¦ ±¸ÇöÇÑ´Ù
-	int i;//¹Ýº¹¹®À» À§ÇÑ º¯¼ö¸¦ ¼±¾ðÇÑ´Ù 
+void print(int* q) {//ì£¼ì†Œê°’ì„ ì•Œë ¤ì¤˜ì„œ í•¨ìˆ˜ë¥¼ êµ¬í˜„í•œë‹¤
+	int i;//ë°˜ë³µë¬¸ì„ ìœ„í•œ ë³€ìˆ˜ë¥¼ ì„ ì–¸í•œë‹¤ 
 	for (i = 0; i < 5; i++) {
-		cout << i + 1 << ". " << q[i] << endl;//¹è¿­ numÀ» ¼ø¼­´ë·Î ¼ø¼­¿Í ÇÔ²² Ãâ·ÂÇØÁØ´Ù
+		cout << i + 1 << ". " << q[i] << endl;//ë°°ì—´ numì„ ìˆœì„œëŒ€ë¡œ ìˆœì„œì™€ í•¨ê»˜ ì¶œë ¥í•´ì¤€ë‹¤
 	}
 
 }
 int main() {
 	int num[5];
-	cout << "¼ýÀÚ ´Ù¼¸ °³¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä (¶ç¾î¾²±â·Î ±¸ºÐ) << ";
-	cin >> num[0] >> num[1] >> num[2] >> num[3] >> num[4];//¶ç¾î¾²±â·Î ±¸ºÐÇØ °ªÀ» ¹Þ´Â´Ù
+	cout << "ìˆ«ìž ë‹¤ì„¯ ê°œë¥¼ ìž…ë ¥í•´ì£¼ì„¸ìš” (ë„ì–´ì“°ê¸°ë¡œ êµ¬ë¶„) << ";
+	cin >> num[0] >> num[1] >> num[2] >> num[3] >> num[4];//ë„ì–´ì“°ê¸°ë¡œ êµ¬ë¶„í•´ ê°’ì„ ë°›ëŠ”ë‹¤
 	cout << endl;
-	cout << "< Á¤·Ä Àü > " << endl << endl;
-	print(num);//printÇÔ¼ö¿¡ ÁÖ¼Ò°ªÀ» ³Ö¾îÁà¾ß ÇÏ´Âµ¥ numÀº ¹è¿­ÀÌ¹Ç·Î ¹è¿­ÀÇ ÀÌ¸§ ÀÚÃ¼°¡ ÁÖ¼Ò¸¦ ÀÇ¹ÌÇÑ´Ù
+	cout << "< ì •ë ¬ ì „ > " << endl << endl;
+	print(num);//printí•¨ìˆ˜ì— ì£¼ì†Œê°’ì„ ë„£ì–´ì¤˜ì•¼ í•˜ëŠ”ë° numì€ ë°°ì—´ì´ë¯€ë¡œ ë°°ì—´ì˜ ì´ë¦„ ìžì²´ê°€ ì£¼ì†Œë¥¼ ì˜ë¯¸í•œë‹¤
 	
-	sort(num);//sortÇÔ¼ö¸¦ »ç¿ëÇÑ´Ù
+	sort(num);//sortí•¨ìˆ˜ë¥¼ ì‚¬ìš©í•œë‹¤
 	
-	cout << endl << "< Á¤·Ä ÈÄ > " << endl << endl;
-	print(num);//sortÇÔ¼ö·Î º¯È­µÈ ¹è¿­ numÀ» Ãâ·ÂÇØÁØ´Ù
+	cout << endl << "< ì •ë ¬ í›„ > " << endl << endl;
+	print(num);//sortí•¨ìˆ˜ë¡œ ë³€í™”ëœ ë°°ì—´ numì„ ì¶œë ¥í•´ì¤€ë‹¤
 	}
