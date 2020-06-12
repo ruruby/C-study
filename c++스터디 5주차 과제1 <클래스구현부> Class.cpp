@@ -3,8 +3,6 @@
 using namespace std;
 
 #include "Class.h"
-#include "Class.h"
-#include "Class.h"
 
 Person::Person() {
 	name = " "; phone = "000-0000-0000";//멤버 변수 문자열 초기화
