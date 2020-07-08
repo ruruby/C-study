@@ -22,63 +22,63 @@ public:
 	void setPasswd(int passwd) { pw = passwd; }
 };
 
-ATM::ATM(){
+ATM::ATM(){//ê³„ì •ë³„ ì´ë¦„, ë¹„ë°€ë²ˆí˜¸, ê¸ˆì•¡ ì´ˆê¸°í™”
 	name = " ";
 	pw = 0000;
 	money = 0;
 }
 
-void mainMenu(ATM *p, ATM *standp, int n) {
+void mainMenu(ATM *p, ATM *standp, int n) {//class ATMì˜ ê°ì²´ë¥¼ ê°€ë¦¬í‚¤ëŠ” í¬ì¸í„°ë¡œ ì ‘ê·¼ì§€ì •ìžê°€ privateì¸ ë©¤ë²„ë³€ìˆ˜ì— ì ‘ê·¼í•´ ìˆ˜ì •ê°€ëŠ¥
 	int sel, tempoMon, pwIn, i, c=0;
 	int userPw = p->getPasswd();
 	string alName, tempoName, tempoName2;
 	string *stP = &tempoName2;
 	do {
-		cout << " --- SWING ATM " << p->getName() << "´Ô ---" << endl;
-		cout << "1. ÀÔ±Ý \n2. ÀÎÃâ\n3. ÀÌÃ¼\n4. ÀÜ¾× È®ÀÎ\n5. Á¾·á" << endl;
-		cout << "¹øÈ£¸¦ ¼±ÅÃÇØÁÖ¼¼¿ä >> ";
+		cout << " --- SWING ATM " << p->getName() << "ë‹˜ ---" << endl;
+		cout << "1. ìž…ê¸ˆ \n2. ì¸ì¶œ\n3. ì´ì²´\n4. ìž”ì•¡ í™•ì¸\n5. ì¢…ë£Œ" << endl;
+		cout << "ë²ˆí˜¸ë¥¼ ì„ íƒí•´ì£¼ì„¸ìš” >> ";
 		cin >> sel;
 		switch (sel) {
 		case 1:
-			cout << "ÀÔ±ÝÇÒ ±Ý¾×À» ÀÔ·ÂÇØÁÖ¼¼¿ä >> ";
+			cout << "ìž…ê¸ˆí•  ê¸ˆì•¡ì„ ìž…ë ¥í•´ì£¼ì„¸ìš” >> ";
 			cin >> tempoMon;
 			p->deposit(tempoMon);
-			cout << "ÇöÀç " << p->getName() << "´ÔÀÇ ÀÜ¾×Àº " << p->getMoney() << "ÀÔ´Ï´Ù." << endl;
+			cout << "í˜„ìž¬ " << p->getName() << "ë‹˜ì˜ ìž”ì•¡ì€ " << p->getMoney() << "ìž…ë‹ˆë‹¤." << endl;
 			break;
 		case 2:
-			cout << "¾ó¸¶¸¦ ÀÎÃâÇÏ½Ã°Ú½À´Ï±î? >> ";
+			cout << "ì–¼ë§ˆë¥¼ ì¸ì¶œí•˜ì‹œê² ìŠµë‹ˆê¹Œ? >> ";
 			cin >> tempoMon;
-			cout << "ºñ¹Ð¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä >> ";
+			cout << "ë¹„ë°€ë²ˆí˜¸ë¥¼ ìž…ë ¥í•´ì£¼ì„¸ìš” >> ";
 			cin >> pwIn;
 			if (pwIn != userPw) {
-				cout << "ºñ¹Ð¹øÈ£°¡ Æ²·È½À´Ï´Ù.";
+				cout << "ë¹„ë°€ë²ˆí˜¸ê°€ í‹€ë ¸ìŠµë‹ˆë‹¤.";
 				break;
 			}
 			p->withdraw(tempoMon);
-			cout << endl << "ÇöÀç " << p->getName() << "´ÔÀÇ ÀÜ¾×Àº " << p->getMoney() << "¿ø ÀÔ´Ï´Ù."<<endl;
+			cout << endl << "í˜„ìž¬ " << p->getName() << "ë‹˜ì˜ ìž”ì•¡ì€ " << p->getMoney() << "ì› ìž…ë‹ˆë‹¤."<<endl;
 			break;
 		case 3:
-			cout << "´©±¸¿¡°Ô º¸³»°Ú½À´Ï±î? >> ";
+			cout << "ëˆ„êµ¬ì—ê²Œ ë³´ë‚´ê² ìŠµë‹ˆê¹Œ? >> ";
 			getchar();
 			getline(cin, tempoName);
 			for (i = 0; i < n; i++) {
 				alName = (standp + i)->getName();
 				if (alName == tempoName) {
-					cout << "¾ó¸¶¸¦ º¸³»°Ú½À´Ï±î? >> ";
+					cout << "ì–¼ë§ˆë¥¼ ë³´ë‚´ê² ìŠµë‹ˆê¹Œ? >> ";
 					cin >> tempoMon;
-					cout << "ºñ¹Ð¹øÈ£¸¦ ÀÔ·ÂÇØ ÁÖ¼¼¿ä >> ";
+					cout << "ë¹„ë°€ë²ˆí˜¸ë¥¼ ìž…ë ¥í•´ ì£¼ì„¸ìš” >> ";
 					cin >> pwIn;
 					if (pwIn == userPw) {
 						(standp + i)->send(tempoName, tempoMon);
 						p->receive(tempoMon);
-						cout << tempoName << "´Ô²² " << tempoMon << "¿øÀ» º¸³Â½À´Ï´Ù." << endl << endl;
-						cout << "ÇöÀç " << p->getName() << "´ÔÀÇ ÀÜ¾×Àº" << p->getMoney() << "¿ø ÀÔ´Ï´Ù." << endl;
+						cout << tempoName << "ë‹˜ê»˜ " << tempoMon << "ì›ì„ ë³´ëƒˆìŠµë‹ˆë‹¤." << endl << endl;
+						cout << "í˜„ìž¬ " << p->getName() << "ë‹˜ì˜ ìž”ì•¡ì€" << p->getMoney() << "ì› ìž…ë‹ˆë‹¤." << endl;
 					}
 				}
 			}
 			break;
 		case 4:
-			cout << p->getName() << "´ÔÀÇ ÇöÀç ÀÜ¾×Àº " << p->getMoney() << "¿ø ÀÔ´Ï´Ù." << endl;
+			cout << p->getName() << "ë‹˜ì˜ í˜„ìž¬ ìž”ì•¡ì€ " << p->getMoney() << "ì› ìž…ë‹ˆë‹¤." << endl;
 			break;
 		case 5:
 			c++;
@@ -94,35 +94,35 @@ int main() {
 	string newName, Name, alName;
 	int passWd, temp, depo;
 	char sel;
-	cout << "ÀºÇà¿¡ °¡ÀÔÇÒ ÀÎ¿øÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä >> ";
+	cout << "ì€í–‰ì— ê°€ìž…í•  ì¸ì›ì„ ìž…ë ¥í•´ì£¼ì„¸ìš” >> ";
 	cin >> n;
 	cout << endl;
 	ATM *pPerson = new ATM[n];
 
 	for (i = 0; i < n; i++) {
-		cout << i+1 << "¹øÂ° ¼Õ´Ô" << endl<<endl;
-		cout << "¼º¸íÀ» Àû¾îÁÖ½Ê½Ã¿À >> ";
+		cout << i+1 << "ë²ˆì§¸ ì†ë‹˜" << endl<<endl;
+		cout << "ì„±ëª…ì„ ì ì–´ì£¼ì‹­ì‹œì˜¤ >> ";
 		getchar();
 		getline(cin, newName);
 		(pPerson + i)->setName(newName);
 		do {
-			cout << "ºñ¹Ð¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä >> ";
+			cout << "ë¹„ë°€ë²ˆí˜¸ë¥¼ ìž…ë ¥í•´ì£¼ì„¸ìš” >> ";
 			cin >> passWd;
 			(pPerson + i)->setPasswd(passWd);
-			cout << "ÇÑ ¹ø ´õ ÀÔ·ÂÇØÁÖ¼¼¿ä >> ";
+			cout << "í•œ ë²ˆ ë” ìž…ë ¥í•´ì£¼ì„¸ìš” >> ";
 			cin >> temp;
 			if (passWd != temp) {
-				cout << "ºñ¹Ð¹øÈ£°¡ ¼­·Î ´Ù¸¨´Ï´Ù." << endl << endl;
+				cout << "ë¹„ë°€ë²ˆí˜¸ê°€ ì„œë¡œ ë‹¤ë¦…ë‹ˆë‹¤." << endl << endl;
 			}
 		} while (passWd != temp);
-		cout << "ÀÔ±ÝÇÒ ±Ý¾×À» ÀÔ·ÂÇØÁÖ¼¼¿ä >> ";
+		cout << "ìž…ê¸ˆí•  ê¸ˆì•¡ì„ ìž…ë ¥í•´ì£¼ì„¸ìš” >> ";
 		cin >> depo;
 		(pPerson + i)->deposit(depo);
 		cout << endl << endl << endl;
 	}
 	do {
 		cout << endl << endl << " --- SWING ATM ---" << endl;
-		cout << "¼ºÇÔÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä (Á¾·á¶ó¸é x¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä) >> ";
+		cout << "ì„±í•¨ì„ ìž…ë ¥í•´ì£¼ì„¸ìš” (ì¢…ë£Œë¼ë©´ xë¥¼ ìž…ë ¥í•´ì£¼ì„¸ìš”) >> ";
 		getchar();
 		getline(cin, Name);
 
@@ -138,10 +138,10 @@ int main() {
 		}
 
 		if (check == 0) {
-			cout << "Á¸ÀçÇÏÁö ¾Ê´Â °èÁÂÁÖÀÔ´Ï´Ù." << endl << endl;
+			cout << "ì¡´ìž¬í•˜ì§€ ì•ŠëŠ” ê³„ì¢Œì£¼ìž…ë‹ˆë‹¤." << endl << endl;
 		}
 		}while (Name != "x");
 
 		if (Name == "x");
-		cout << "ATMÀ» Á¾·áÇÕ´Ï´Ù.";
+		cout << "ATMì„ ì¢…ë£Œí•©ë‹ˆë‹¤.";
 }
