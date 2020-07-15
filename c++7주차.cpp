@@ -11,12 +11,12 @@ void swap(int a, int b) {
 int main() {
 	int num, i, j, k, temp, mintemp;
 
-	cout << "¼ö¿­ÀÇ ±æÀÌ : ";
+	cout << "ìˆ˜ì—´ì˜ ê¸¸ì´ : ";
 	cin >> num;
 	int *p = new int[num];
 
-	cout << "¼ö¿­À» ÀÔ·ÂÇØÁÖ¼¼¿ä";
-	for (i = 0; i < num; i++) {
+	cout << "ìˆ˜ì—´ì„ ì…ë ¥í•´ì£¼ì„¸ìš”";
+	for (i = 0; i < num-1; i++) {
 		cin >> p[i];
 	}
 	
@@ -35,7 +35,7 @@ int main() {
 		}
 		p[i] = temp;
 		p[j] = mintemp;
-		cout << "Ãâ·Â" << endl;
+		cout << "ì¶œë ¥" << endl;
 		for (i = 0; i < num; i++) {
 			cout << p[i];
 		}
