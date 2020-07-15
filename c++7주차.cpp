@@ -16,11 +16,11 @@ int main() {
 	int *p = new int[num];
 
 	cout << "수열을 입력해주세요";
-	for (i = 0; i < num-1; i++) {
+	for (i = 0; i < num; i++) {
 		cin >> p[i];
 	}
 	
-	for (i = 0; i < num; i++) {
+	for (i = 0; i < num-1; i++) {
 		temp = p[i];
 		mintemp = p[i];
 		k = i;
